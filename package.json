@@ -14,7 +14,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://code.byted.org/fproject/vue-admin-pro"
+    "url": "git+https://code.byted.org/fproject/vue-router-invoke-webpack-plugin.git"
   },
   "engines": {
     "node": ">=8.15.1"
