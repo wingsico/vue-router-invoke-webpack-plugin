@@ -1,11 +1,11 @@
 {
-  "name": "vue-router-invoke-webpack-plugin",
-  "version": "0.3.0",
-  "description": "automatic generate your vue-router path and stronger normalize your file directory",
+  "name": "@byted/vue-router-invoke-webpack-plugin",
+  "version": "0.0.1",
+  "description": "自动化生成vue路由",
   "main": "core/index.js",
   "author": {
-    "name": "Qymh",
-    "email": "bowei.zhang@ankerbox.com"
+    "name": "zhongweijie",
+    "email": "zhongweijie@bytedance.com"
   },
   "keywords": [
     "vue",
@@ -14,7 +14,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Qymh/vue-router-invoke-webpack-plugin.git"
+    "url": "git+https://code.byted.org/fproject/vue-admin-pro"
   },
   "engines": {
     "node": ">=8.15.1"
