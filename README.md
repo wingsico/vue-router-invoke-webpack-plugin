@@ -1,8 +1,6 @@
 # vue-router-invoke-webpack-plugin
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/Qymh/vue-router-invoke-webpack-plugin.svg)](https://greenkeeper.io/)
-
-[中文版本](https://github.com/Qymh/vue-router-invoke-webpack-plugin/blob/dev/docs/zh_CN/README.md)
+[中文版本](https://code.byted.org/fproject/vue-router-invoke-webpack-plugin/tree/master/docs/zh_CN/README.md)
 
 Automatic generate the routes of `vue-router` based on the file directory.
 
@@ -39,7 +37,7 @@ Routing automatic injection refers to according to the format of the file direct
 - the generated route will be lazyload. So make sure you have add [@babel/plugin-syntax-dynamic-import](https://babeljs.io/docs/en/next/babel-plugin-syntax-dynamic-import.html)
 
 ```javascript
-const VueRouterInvokeWebpackPlugin = require('vue-router-invoke-webpack-plugin');
+const VueRouterInvokeWebpackPlugin = require('@byted/vue-router-invoke-webpack-plugin');
 const path = require('path')
 
 // omit some other option...
@@ -65,7 +63,7 @@ vueCli3 will be easier than webpack
 `vue.config.js`
 
 ```javascript
-const VueRouterInvokeWebpackPlugin = require('vue-router-invoke-webpack-plugin');
+const VueRouterInvokeWebpackPlugin = require('@byted/vue-router-invoke-webpack-plugin');
 
 module.exports = {
   // omit other options...
@@ -128,7 +126,7 @@ The following example depends on VueCli3. I believe that if you know how to use 
 `vue.config.js`
 
 ```javascript
-const VueRouterInvokeWebpackPlugin = require('vue-router-invoke-webpack-plugin');
+const VueRouterInvokeWebpackPlugin = require('@byted/vue-router-invoke-webpack-plugin');
 
 module.exports = {
   // omit other options...
@@ -173,7 +171,7 @@ The same, do not name the directory with `Index`, it may have diffrent sense on 
 
 So if you see that
 
-![image](https://github.com/Qymh/vue-router-invoke-webpack-plugin/blob/master/docs/images/notice.png)
+![image](https://code.byted.org/fproject/vue-router-invoke-webpack-plugin/tree/master/docs/images/notice.png)
 
 The rule of naming about your directory maybe wrong
 
@@ -390,7 +388,7 @@ automatical generated route will be this
 
 ## Correct the name
 
-We will transform diffetent rule of naming into `upperCamelCase` naming
+We will transform `camel-case` naming into `camel_case` naming
 
 For Example
 
@@ -417,18 +415,18 @@ automatical generated route will be this
 },
 {
   component: () => import('@/views/User-home/Index.vue'),
-  name: 'userHome',
-  path: '/userHome'
+  name: 'user_home',
+  path: '/user_home'
 },
 {
   component: () => import('@/views/User-home/Home-details/Index.vue'),
-  name: 'userHome-homeDetails',
-  path: '/userHome/homeDetails'
+  name: 'user_home-home_details',
+  path: '/user_home/home_details'
 },
 {
   component: () => import('@/views/User-home/account/Index.vue'),
-  name: 'userHome-account',
-  path: '/userHome/account'
+  name: 'user_home-account',
+  path: '/user_home/account'
 },
 ```
 
@@ -723,4 +721,4 @@ const router = new Router({
 
 ## Demos
 
-The detailed usage you can `git clone` our project and run `npm run build:demos` or you can just watch our [demos](https://github.com/Qymh/vue-router-invoke-webpack-plugin/tree/master/demos) directly.The demos dont't have substantial content,the more we focus is on the generation of directory,you can get how `router.js` generated in the demos.
+The detailed usage you can `git clone` our project and run `npm run build:demos` or you can just watch our [demos](https://code.byted.org/fproject/vue-router-invoke-webpack-plugin/tree/master/demos) directly.The demos dont't have substantial content,the more we focus is on the generation of directory,you can get how `router.js` generated in the demos.

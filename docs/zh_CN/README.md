@@ -7,19 +7,19 @@
 ### npm
 
 ```javascript
-npm install vue-router-invoke-webpack-plugin -D
+npm install @byted/vue-router-invoke-webpack-plugin -D
 ```
 
 ### cnpm
 
 ```javascript
-cnpm install vue-router-invoke-webpack-plugin -D
+cnpm install @byted/vue-router-invoke-webpack-plugin -D
 ```
 
 ### yarn
 
 ```javascript
-yarn add vue-router-invoke-webpack-plugin -D
+yarn add @byted/vue-router-invoke-webpack-plugin -D
 ```
 
 ## 什么是路由自动注入
@@ -35,7 +35,7 @@ yarn add vue-router-invoke-webpack-plugin -D
 - 自动构建的路由是懒加载的,所以你需要引用一个 babel 插件[@babel/plugin-syntax-dynamic-import](https://babeljs.io/docs/en/next/babel-plugin-syntax-dynamic-import.html)
 
 ```javascript
-const VueRouterInvokeWebpackPlugin = require('vue-router-invoke-webpack-plugin');
+const VueRouterInvokeWebpackPlugin = require('@byted/vue-router-invoke-webpack-plugin');
 const path = require('path')
 
 // 省略掉其他配置...
@@ -61,7 +61,7 @@ vuecli3 会比 webpack 配置容易点
 `vue.config.js`
 
 ```javascript
-const VueRouterInvokeWebpackPlugin = require('vue-router-invoke-webpack-plugin');
+const VueRouterInvokeWebpackPlugin = require('@byted/vue-router-invoke-webpack-plugin');
 
 module.exports = {
   // 省略掉其他配置...
@@ -124,7 +124,7 @@ module.exports = {
 `vue.config.js`
 
 ```javascript
-const VueRouterInvokeWebpackPlugin = require('vue-router-invoke-webpack-plugin');
+const VueRouterInvokeWebpackPlugin = require('@byted/vue-router-invoke-webpack-plugin');
 
 module.exports = {
   // 省略其他配置
@@ -167,7 +167,7 @@ export default new Vue({
 
 > 0.2.7 的版本我们引入了暴力提醒 第一次打包的时候如果命名规则和期望值不同,插件会直接报错,在开发环境下插件不会中断程序运行,但会高亮报错信息,比如这样
 
-![image](https://github.com/Qymh/vue-router-invoke-webpack-plugin/blob/master/docs/images/notice.png)
+![image](https://code.byted.org/fproject/vue-router-invoke-webpack-plugin/tree/master/docs/images/notice.png)
 
 如果你发现此类的提醒,可以检查下文件格式是否符合规则
 
@@ -382,9 +382,9 @@ src
 
 ## 命名矫正
 
-在为什么使用`vue-router-invoke-webpack-plugin`中提到过命名不统一的问题,我们会将所有不同的命名转化为驼峰命名,这只是一个小的命名矫正,根本的方法应该是统一命名规则
+在为什么使用`vue-router-invoke-webpack-plugin`中提到过命名不统一的问题,我们会将中划线命名转化为下划线,这只是一个小的命名矫正,根本的方法应该是统一命名规则
 
-举个列子
+举个例子
 
 ```
 src
@@ -409,18 +409,18 @@ src
 },
 {
   component: () => import('@/views/User-home/Index.vue'),
-  name: 'userHome',
-  path: '/userHome'
+  name: 'user_home',
+  path: '/user_home'
 },
 {
   component: () => import('@/views/User-home/Home-details/Index.vue'),
-  name: 'userHome-homeDetails',
-  path: '/userHome/homeDetails'
+  name: 'user_home-home_details',
+  path: '/user_home/home_details'
 },
 {
   component: () => import('@/views/User-home/account/Index.vue'),
-  name: 'userHome-account',
-  path: '/userHome/account'
+  name: 'user_home-account',
+  path: '/user_home/account'
 },
 ```
 
