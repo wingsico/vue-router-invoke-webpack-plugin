@@ -65,9 +65,7 @@ function init(options) {
   }
   if (!options.alias) {
     warn(
-      `the alias option is required, make sure you have set the alias of the dir option: ${
-        options.dir
-      } `
+      `the alias option is required, make sure you have set the alias of the dir option: ${options.dir} `
     );
   }
   let behavior = '';
@@ -81,6 +79,7 @@ function init(options) {
   this.watchDir = '';
   this.routeString = '';
   this.ignoreRegExp = '';
+  this.nestMap = {};
   this.nestArr = [];
   this.routeStringPre =
     language === 'javascript'
@@ -298,7 +297,8 @@ function generateRouteString(filesAst, pre) {
             let count = 0;
             for (const key in nestCollections) {
               const val = nestCollections[key];
-              if (val === 0) {
+              if (val === 0 && !this.nestMap[key]) {
+                this.nestMap[key] = true;
                 count++;
                 this.routeString += '],},';
               }

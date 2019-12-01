@@ -1,6 +1,7 @@
 'use strict';
 
 const fs = require('fs');
+const path = require('path');
 const fse = require('fs-extra');
 const chokidar = require('chokidar');
 const { replaceVue } = require('./utils');
@@ -33,8 +34,11 @@ function writeFile(options) {
 function watchFile(options, start) {
   writeFile.call(this, options);
   let watcher = chokidar.watch(this.watchDir, { persistent: true });
-  watcher.on('raw', event => {
-    if (event === 'modified' || isRunning) {
+  watcher.on('raw', (event, _path) => {
+    if (
+      isRunning ||
+      (event === 'modified' && !path.extname(_path) === '.yml')
+    ) {
       return;
     }
     isRunning = true;

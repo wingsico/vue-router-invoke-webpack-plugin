@@ -26,8 +26,8 @@ exports.replaceAlias = (str, dir) => {
 exports.replaceVue = str => str.replace(/\.vue/g, '');
 
 exports.camelize = str =>
-  str.replace(/[-_](\w)/g, (_, c, i) => {
-    return i === 0 ? `:${c}` : c.toUpperCase();
+  str.replace(/[-](\w)/g, (_, c, i) => {
+    return i === 0 ? `:${c}` : `_${c}`;
   });
 
 exports.makeMap = str => {
