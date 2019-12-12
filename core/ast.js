@@ -250,7 +250,11 @@ function generateRouteString(filesAst, pre) {
             this.routeString += `meta:{`;
             for (const meta of item.meta) {
               for (const key in meta) {
-                this.routeString += `${key}:'${meta[key]}',`;
+                const value = meta[key];
+                const isString = typeof value === 'string';
+                this.routeString += isString
+                  ? `${key}:'${value}',`
+                  : `${key}:${value},`;
               }
             }
             this.routeString += `},`;
@@ -260,7 +264,11 @@ function generateRouteString(filesAst, pre) {
             this.routeString += `redirect:{`;
             for (const redirect of item.redirect) {
               for (const key in redirect) {
-                this.routeString += `${key}:'${redirect[key]}',`;
+                const value = redirect[key];
+                const isString = typeof value === 'string';
+                this.routeString += isString
+                  ? `${key}:'${value}',`
+                  : `${key}:${value},`;
               }
             }
             this.routeString += `},`;
